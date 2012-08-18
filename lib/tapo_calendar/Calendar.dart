@@ -37,9 +37,16 @@ class Calendar {
   void init() {
     Element el = new Element.html(TEMPLATE);
     Element timecol = el.query('.cal-timecol');
+    Element timegrid = el.query('.cal-timegrid');
     for(num i = 0 ; i < 24 ; i++) {
-      new Element.html('''<div class="cal-timelabel-wrapper"><div class="cal-timelabel">00:00</div></div>''');
+      String hour = i < 10 ? "0${i}" : i.toString();
+      Element hourLabel = new Element.html('''<div class="cal-timelabel-wrapper"><div class="cal-timelabel">${hour}:00</div></div>''');
+      timecol.nodes.add(hourLabel);
+      
+      Element gridLine = new Element.html('''<div class="cal-timegrid-hour"><div class="cal-timegrid-hour-half"></div></div>''');
+      timegrid.nodes.add(gridLine);
     }
+    wrapper.nodes.add(el);
     print("hehe");
   }
 }
