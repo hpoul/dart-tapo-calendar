@@ -3,6 +3,12 @@
 #import('dart:html');
 
 #source('tapo_calendar/Calendar.dart');
+#source('tapo_calendar/CalendarDatasource.dart');
+#source('tapo_calendar/DayDatasource.dart');
+#source('tapo_calendar/Event.dart');
+
+#source('tapo_calendar/SimpleDayDatasource.dart');
+#source('tapo_calendar/SimpleEvent.dart');
 
 /*
 #import('dart:html');

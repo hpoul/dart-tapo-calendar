@@ -1,3 +1,9 @@
+.rounded-corners (@radius: 4px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
 .tapo-calendar {
 
 	height: 500px;
@@ -50,6 +56,53 @@
 	
 	.cal-timegrid {
 		position: absolute;
+		width: 100%;
+	}
+	
+	
+	/* events */
+	.cal-eventlistwrapper {
+		position: relative;
+		height: 1440px;
+		cursor: pointer;
+	}
+	.cal-theme-yellow.cal-event {
+		border: 1px solid #990;
+		background-color: #FFC;
+	}
+	.cal-event {
+		.rounded-corners;
+		position: absolute;
+		border: 1px solid #009;
+		background-color: #EEF;
+		margin-left: 10px;
+		width: 85%;
+		opacity: 0.9;
+		overflow: hidden;
+	}
+	.cal-event-titlebar {
+		font-weight: bold;
+		padding-top: 2px;
+		background-color: #55F;
+		color: white;
+		padding-left: 2px;
+		cursor: move;
+	}
+	.cal-event-title {
+		margin-left: 1em;
+	}
+	.cal-event-label-wrapper {
+		padding: 5px;
+		padding-right: 10px;
+		height: 100%;
+	}
+	input.cal-event-body {
+		border: none;
+		padding: 1px;
+		display: block;
+		margin: 0px;
+		font-family: inherit;
+		background: transparent;
 		width: 100%;
 	}
 }
