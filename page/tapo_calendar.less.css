@@ -1,0 +1,97 @@
+.tapo-calendar {
+  height: 500px;
+  overflow-y: scroll;
+  /* events */
+
+}
+.tapo-calendar * {
+  margin: 0px;
+  padding: 0px;
+}
+.tapo-calendar .cal-timecol-placeholder {
+  width: 60px;
+}
+.tapo-calendar .cal-table {
+  border-collapse: collapse;
+  border: 0px;
+  width: 100%;
+  font-family: Arial, Verdana;
+  font-size: 8pt;
+  line-height: normal;
+}
+.tapo-calendar .cal-timelabel {
+  text-align: right;
+  color: #888;
+  padding-right: 5px;
+}
+.tapo-calendar .cal-timegrid-hour,
+.tapo-calendar .cal-timelabel-wrapper {
+  height: 59px;
+}
+.tapo-calendar .cal-timegrid-hour,
+.tapo-calendar .cal-timelabel-wrapper,
+.tapo-calendar .cal-timelabel {
+  border-top: 1px solid #CCC;
+}
+.tapo-calendar .cal-timegrid-hour-half {
+  height: 29px;
+}
+.tapo-calendar .cal-timegrid-hour-half,
+.tapo-calendar .cal-timegrid-hour-quarter,
+.tapo-calendar .cal-timegrid-minute-five,
+.tapo-calendar .cal-timegrid-minute {
+  border-bottom: 1px dotted #DDD;
+}
+.tapo-calendar .cal-timegrid-wrapper {
+  position: relative;
+}
+.tapo-calendar .cal-timegrid {
+  position: absolute;
+  width: 100%;
+}
+.tapo-calendar .cal-eventlistwrapper {
+  position: relative;
+  height: 1440px;
+  cursor: pointer;
+}
+.tapo-calendar .cal-theme-yellow.cal-event {
+  border: 1px solid #990;
+  background-color: #FFC;
+}
+.tapo-calendar .cal-event {
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  position: absolute;
+  border: 1px solid #009;
+  background-color: #EEF;
+  margin-left: 10px;
+  width: 85%;
+  opacity: 0.9;
+  overflow: hidden;
+}
+.tapo-calendar .cal-event-titlebar {
+  font-weight: bold;
+  padding-top: 2px;
+  background-color: #55F;
+  color: white;
+  padding-left: 2px;
+  cursor: move;
+}
+.tapo-calendar .cal-event-title {
+  margin-left: 1em;
+}
+.tapo-calendar .cal-event-label-wrapper {
+  padding: 5px;
+  padding-right: 10px;
+  height: 100%;
+}
+.tapo-calendar input.cal-event-body {
+  border: none;
+  padding: 1px;
+  display: block;
+  margin: 0px;
+  font-family: inherit;
+  background: transparent;
+  width: 100%;
+}

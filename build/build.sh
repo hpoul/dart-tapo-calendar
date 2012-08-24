@@ -23,5 +23,7 @@ $LESSC $BASEDIR/lib/tapo_calendar.less $OUTDIR/tapo_calendar.less.css
 
 cat $BASEDIR/samples/example.html  | sed "s/DEV START-->/DEV START/" | sed "s/<.--DEV END/DEV END/" | sed "s/BUILD START/BUILD START-->/" | sed "s/BUILD END/<\!--BUILD END/" > $OUTDIR/example.html
 
-
+rm -rf $BASEDIR/page
+mkdir -p $BASEDIR/page
+cp -r $OUTDIR/* $BASEDIR/page
 
