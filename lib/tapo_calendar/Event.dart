@@ -1,3 +1,4 @@
+part of tapo_calendar;
 
 class CalendarEvent {
   /*

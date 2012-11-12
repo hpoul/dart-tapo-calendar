@@ -1,14 +1,14 @@
-#library('tapo_calendar');
+library tapo_calendar;
 
-#import('dart:html');
+import 'dart:html';
 
-#source('tapo_calendar/Calendar.dart');
-#source('tapo_calendar/CalendarDatasource.dart');
-#source('tapo_calendar/DayDatasource.dart');
-#source('tapo_calendar/Event.dart');
+part 'tapo_calendar/Calendar.dart';
+part 'tapo_calendar/CalendarDatasource.dart';
+part 'tapo_calendar/DayDatasource.dart';
+part 'tapo_calendar/Event.dart';
 
-#source('tapo_calendar/SimpleDayDatasource.dart');
-#source('tapo_calendar/SimpleEvent.dart');
+part 'tapo_calendar/SimpleDayDatasource.dart';
+part 'tapo_calendar/SimpleEvent.dart';
 
 /*
 #import('dart:html');

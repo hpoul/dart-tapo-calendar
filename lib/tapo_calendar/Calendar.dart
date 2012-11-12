@@ -1,15 +1,16 @@
+part of tapo_calendar;
 
 class Calendar {
   Element wrapper;
-  
+
   // For now we only support one day, so we only need the day datasource.
   DayDatasource _dayds;
-  
+
   int _hourHeight = 60;
   int _minuteFactor = 15;
   double _hourMultiplier;
   double _timeFrameHeight;
-  
+
   static final String TEMPLATE = '''
 <div class="tapo-calendar">
   <div class="cal-wrapper">
@@ -49,18 +50,18 @@ class Calendar {
   <div class="cal-event-resize"></div>
 </div>
 ''';
-  
+
   Calendar(Element this.wrapper) {
     _hourMultiplier = 60 / _minuteFactor;
     _timeFrameHeight = _hourHeight / _hourMultiplier;
   }
-  
-  
+
+
   void init(DayDatasource dayds) {
     _dayds = dayds;
     _init();
   }
-  
+
   void _init() {
     Element el = new Element.html(TEMPLATE);
     Element timecol = el.query('.cal-timecol');
@@ -69,35 +70,35 @@ class Calendar {
       String hour = i < 10 ? "0${i}" : i.toString();
       Element hourLabel = new Element.html('''<div class="cal-timelabel-wrapper"><div class="cal-timelabel">${hour}:00</div></div>''');
       timecol.nodes.add(hourLabel);
-      
+
       Element gridLine = new Element.html('''<div class="cal-timegrid-hour"><div class="cal-timegrid-hour-half"></div></div>''');
       timegrid.nodes.add(gridLine);
     }
     wrapper.nodes.add(el);
-    
+
     _updateEventDisplays();
   }
-  
+
   String _formatTime(Date date) {
     String hour = date.hour < 10 ? "0${date.hour}" : "${date.hour}";
     String minute = date.minute < 10 ? "0${date.minute}" : "${date.minute}";
     return "${hour}:${minute}";
   }
-  
-  
+
+
   void _updateEventDisplays() {
     List<CalendarEvent> events = _dayds.getEvents();
     DivElement eventWrapper = new DivElement();
     eventWrapper.classes.add("cal-eventlistwrapper");
     for (CalendarEvent event in events) {
       Element elEvent = new Element.html(TEMPLATE_EVENT);
-      
+
       String start = _formatTime(event.start);
       String end = _formatTime(event.end);
       elEvent.query('.cal-event-time').text = "${start} - ${end}";
       elEvent.query('.cal-event-title').text = event.title;
       elEvent.query('input.cal-event-body').value = event.body;
-      
+
       // calculate x coordinate
       Date startDate = event.start;
       int quarters = ((event.start.hour * _hourMultiplier) + (event.start.minute / _minuteFactor)).round().toInt();
@@ -108,10 +109,10 @@ class Calendar {
       print("timeframeheight: ${_timeFrameHeight}");
       elEvent.style.height = "${height}px";
       elEvent.style.top = "${top}px";
-      
+
       eventWrapper.nodes.add(elEvent);
     }
-    
+
     wrapper.query('.cal-datescol').nodes.add(eventWrapper);
   }
 }

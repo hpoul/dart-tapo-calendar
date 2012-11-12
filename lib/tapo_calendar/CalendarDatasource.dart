@@ -1,4 +1,5 @@
+part of tapo_calendar;
 
 abstract class CalendarDatasource {
-  abstract DayDatasource loadDay(Date day);
+  DayDatasource loadDay(Date day);
 }
